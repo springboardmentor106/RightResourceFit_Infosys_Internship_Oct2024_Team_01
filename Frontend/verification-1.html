@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="verificationApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification</title>
+    <style>
+        /* Background and layout */
+        body {
+            background-image: url('b2.jpg'); /* Use your uploaded background */
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .verification-box {
+            background-color: #f0e3c2; /* Light beige box */
+            padding: 20px;
+            border-radius: 10px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 2px solid #ccc;
+        }
+
+        .verification-box h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .verification-box p {
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .code-input {
+            width: 35px;
+            height: 35px;
+            margin: 0 5px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .timer {
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .verification-box button {
+            background-color: #4a5a47; /* Button color */
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .verification-box button:hover {
+            background-color: #3b4b39;
+        }
+
+        .verification-box .secondary-btn {
+            background-color: #6c757d;
+        }
+
+        .resend-link {
+            color: blue;
+            cursor: pointer;
+        }
+
+        .or-divider {
+            margin: 15px 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="verification-box" ng-controller="VerificationController">
+        <h2>Verification</h2>
+        <p>The verification email has been sent. Please check your Spam folder as well.</p>
+        <form ng-submit="submitCode()">
+            <div>
+                <input type="text" maxlength="1" class="code-input" ng-model="code[0]" required />
+                <input type="text" maxlength="1" class="code-input" ng-model="code[1]" required />
+                <input type="text" maxlength="1" class="code-input" ng-model="code[2]" required />
+                <input type="text" maxlength="1" class="code-input" ng-model="code[3]" required />
+                <input type="text" maxlength="1" class="code-input" ng-model="code[4]" required />
+            </div>
+            <div class="timer">Timing: 20 sec</div>
+            <div>If you didn't receive mail <span class="resend-link" ng-click="resendEmail()">Resend</span></div>
+            <button type="submit">Continue</button>
+        </form>
+        <div class="or-divider">Or</div>
+        <button class="secondary-btn" ng-click="signUp()">Sign Up</button>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var app = angular.module('verificationApp', []);
+        app.controller('VerificationController', function($scope) {
+            $scope.code = ['', '', '', '', ''];
+
+            $scope.submitCode = function() {
+                var codeEntered = $scope.code.join('');
+                if (codeEntered.length === 5) {
+                    alert('Code submitted: ' + codeEntered);
+                    // Add further logic for verification code submission
+                } else {
+                    alert('Please enter the full code.');
+                }
+            };
+
+            $scope.resendEmail = function() {
+                alert('Resend verification email clicked.');
+                // Add resend logic here
+            };
+
+            $scope.signUp = function() {
+                alert('Sign Up clicked.');
+                // Add sign-up redirection logic here
+            };
+        });
+    </script>
+</body>
+</html>
