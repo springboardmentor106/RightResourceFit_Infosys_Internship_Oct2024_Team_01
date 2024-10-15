@@ -1,0 +1,89 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #dcdcdc;
+  }
+  
+  .loginCard {
+    background-color: #f7e5d1;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+  }
+
+  .login{
+    text-align: center;
+  }
+  
+  .login-box h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #2f2e2e;
+  }
+  
+  .login-box p {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #2f2e2e;
+  }
+  
+  .input {
+    margin-bottom: 20px;
+  }
+  
+  .input label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #2f2e2e;
+  }
+  
+  .input input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #e6e6e6;
+  }
+  
+  .forgotPassword {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #2f2e2e;
+    text-decoration: none;
+  }
+  
+  .loginBtn {
+    background-color: #4d5440;
+    color: white;
+    padding: 10px 0;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .signupText {
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-size: 12px;
+    color: #2f2e2e;
+  }
+  
+  .signupBtn {
+    background-color: #4d5440;
+    color: white;
+    padding: 10px 0;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 5px;
+  }
