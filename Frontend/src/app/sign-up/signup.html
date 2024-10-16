@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            background-image: url('https://c1.wallpaperflare.com/preview/914/886/521/office-work-business-workspace.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(240, 227, 194, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 350px;
+            width: 100%;
+            text-align: center;
+            border: 2px solid #ccc;
+            position: absolute;
+            left: 57%;
+
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #4a5a47;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3b4b39;
+        }
+
+        button:disabled {
+            background-color: #a0a0a0;
+            cursor: not-allowed;
+        }
+
+        .go-back {
+            margin-top: 20px;
+            color: #555;
+        }
+
+        .go-back a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .go-back a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form (ngSubmit)="onSubmit()" #signUpForm="ngForm">
+            <input type="text" name="name" placeholder="Name" [(ngModel)]="user.name" #name="ngModel" required />
+            <div *ngIf="name.invalid && name.touched" class="error"></div>
+
+            <input type="email" name="email" placeholder="Email" [(ngModel)]="user.email" #email="ngModel" required
+                email />
+            <div *ngIf="email.invalid && email.touched" class="error"></div>
+
+            <input type="password" name="password" placeholder="Password" [(ngModel)]="user.password"
+                #password="ngModel" required minlength="6" />
+            <div *ngIf="password.invalid && password.touched" class="error"></div>
+
+            <input type="password" name="confirmPassword" placeholder="Confirm Password"
+                [(ngModel)]="user.confirmPassword" #confirmPassword="ngModel" required />
+            <div *ngIf="confirmPassword.touched && passwordMismatch" class="error"></div>
+
+            <button type="submit" id="submit" [disabled]="signUpForm.invalid || passwordMismatch">Sign Up</button>
+        </form>
+        <p class="go-back">
+            Go Back to <a href="#">Log in</a>
+        </p>
+    </div>
+
+    <script>
+        export class SignUpComponent {
+            user = {
+                name: '',
+                email: '',
+                password: '',
+                confirmPassword: ''
+            };
+
+            get passwordMismatch() {
+                return this.user.password !== this.user.confirmPassword;
+            }
+
+            onSubmit() {
+                if (!this.passwordMismatch && this.signUpForm.valid) {
+                    console.log('Form Submitted', this.user);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
