@@ -1,1 +1,0 @@
-# RightResourceFit_Infosys_Internship_Oct2024_Team_01
