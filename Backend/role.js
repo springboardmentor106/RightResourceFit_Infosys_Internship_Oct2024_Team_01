@@ -1,25 +1,15 @@
-import express from 'express';
-import Role from '../models/Role.js';
+import mongoose,{Schema} from 'mongoose';
 
-const router = express.Router();
 
-//create a new role in db
-router.post('/create',async(req,res,next)=>{
-    try{
-        if(req.body.role && req.body.role!==''){
-            const newRole=new Role(req.body);
-            await newRole.save();
-            return res.send("Role Created!");
-
+const RoleSchema= mongoose.Schema(
+    {
+        role:{
+            type:String,
+            required:true
         }
-        else{
-            return res.status(400).send("Bad Request");
-        }
-    } catch(error){
-        return res.status(500).send("Internal Server Error!!");
-
+    },
+    {
+        timestamps:true
     }
-});
-
-
-export default router;
+);
+export default mongoose.model("Role",RoleSchema);
