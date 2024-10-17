@@ -1,1 +1,21 @@
-<p>sign-up works!</p>
+<div class="container">
+    <h2>Sign Up</h2>
+    <form (ngSubmit)="onSubmit()" #signUpForm="ngForm">
+        <input type="text" name="name" placeholder="Name" [(ngModel)]="user.name" #name="ngModel" required />
+        <div *ngIf="name.invalid && name.touched" class="error"></div>
+
+        <input type="email" name="email" placeholder="Email" [(ngModel)]="user.email" #email="ngModel" required email />
+        <div *ngIf="email.invalid && email.touched" class="error"></div>
+
+        <input type="password" name="password" placeholder="Password" [(ngModel)]="user.password" #password="ngModel" required minlength="6" />
+        <div *ngIf="password.invalid && password.touched" class="error"></div>
+
+        <input type="password" name="confirmPassword" placeholder="Confirm Password" [(ngModel)]="user.confirmPassword" #confirmPassword="ngModel" required (input)="checkPasswordMatch()" />
+        <div *ngIf="passwordMismatch && confirmPassword.touched" class="error"></div>
+
+        <button type="submit" id="submit" [disabled]="signUpForm.invalid || passwordMismatch">Sign Up</button>
+    </form>
+    <p class="go-back">
+        Go Back to <a href="#">Log in</a>
+    </p>
+</div>

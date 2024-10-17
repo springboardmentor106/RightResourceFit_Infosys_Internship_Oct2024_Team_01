@@ -1,0 +1,77 @@
+body {
+    background-image: url('https://c1.wallpaperflare.com/preview/914/886/521/office-work-business-workspace.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: rgba(240, 227, 194, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 350px;
+    width: 100%;
+    text-align: center;
+    border: 2px solid #ccc;
+    position: absolute;
+    left: 57%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4a5a47;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3b4b39;
+}
+
+button:disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+}
+
+.go-back {
+    margin-top: 20px;
+    color: #555;
+}
+
+.go-back a {
+    color: #333;
+    text-decoration: none;
+}
+
+.go-back a:hover {
+    text-decoration: underline;
+}
