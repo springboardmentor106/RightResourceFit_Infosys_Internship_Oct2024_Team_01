@@ -1,0 +1,34 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .Home{
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav li {
+    list-style: none;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .Buttons button {
+    background-color: #6b7258;
+    margin-left: 14px;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
